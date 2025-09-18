@@ -50,10 +50,13 @@ terraform Modules - VPC and S3 Bucket with Backend Storage
 
 
 
+### After applying, copy the public IP address of your deployed resource (such as an EC2 instance or load balancer) and paste it into your web browser’s address bar. Press Enter, and you should see the application or webpage running on that server
+ip "http://54.83.184.30/"
+<img width="1362" height="333" alt="Screenshot 2025-09-18 at 10 18 43 pm" src="https://github.com/user-attachments/assets/05b501e3-7384-4109-9354-1c2eebd29aae" />
+
+### After opening the public IP in your web browser, you should see the application’s default webpage confirming that your infrastructure was successfully deployed
 
 
-
-
-
+<img width="1436" height="813" alt="Screenshot 2025-09-18 at 3 06 33 pm" src="https://github.com/user-attachments/assets/7fc95bc0-447f-4dda-9827-a9a3d05c4c62" />
 
 
