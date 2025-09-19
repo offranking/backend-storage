@@ -32,9 +32,7 @@ terraform Modules - VPC and S3 Bucket with Backend Storage
 
 <img width="1436" height="900" alt="Screenshot 2025-09-18 at 10 06 16 pm" src="https://github.com/user-attachments/assets/33ce783a-b27b-4e42-9f89-24957e5e1f4a" />
 
-### Now run terraform init to initialize your Terraform project. This command downloads the required provider plugins, configures the backend, and prepares the working directory so Terraform can run properly
 
-<img width="1162" height="249" alt="Screenshot 2025-09-18 at 10 14 41 pm" src="https://github.com/user-attachments/assets/1449e1fd-7c2c-4f09-a529-0ea5a66723c1" />
 
 ### Next, run terraform validate to check your configuration files. This command verifies that the syntax is correct, all required arguments are provided, and the configuration is internally consistent. It doesn’t access remote services but ensures your Terraform code is properly structured before applying
 <img width="838" height="56" alt="Screenshot 2025-09-18 at 10 15 27 pm" src="https://github.com/user-attachments/assets/d50a31c0-c7ce-4be3-856a-b71112d8c590" />
@@ -58,6 +56,34 @@ ip "http://54.83.184.30/"
 
 
 <img width="1436" height="813" alt="Screenshot 2025-09-18 at 3 06 33 pm" src="https://github.com/user-attachments/assets/7fc95bc0-447f-4dda-9827-a9a3d05c4c62" />
+
+### Finally, run terraform destroy to tear down the infrastructure you created. This command scans your state file, determines all the resources currently being managed by Terraform, and generates a destruction plan. It will then prompt you with Do you really want to destroy all resources? (yes/no). Type yes to confirm, and Terraform will proceed to delete every resource it created, such as EC2 instances, VPCs, S3 buckets, etc. Once complete, your environment will be fully removed, and you’ll see confirmation in the terminal.
+
+<img width="1436" height="852" alt="Screenshot 2025-09-19 at 3 35 46 pm" src="https://github.com/user-attachments/assets/7f0e5619-53b3-4b73-b96b-e66ed30cbe55" />
+
+### Now run terraform init to initialize your Terraform project. This command downloads the required provider plugins, configures the backend, and prepares the working directory so Terraform can run properly
+
+<img width="1162" height="249" alt="Screenshot 2025-09-18 at 10 14 41 pm" src="https://github.com/user-attachments/assets/1449e1fd-7c2c-4f09-a529-0ea5a66723c1" />
+
+### After completing the frontend setup, you now need to reconfigure Terraform’s backend. To do this, edit the backend configuration in your Terraform files (for example, update the S3 bucket name, key, region, or DynamoDB table in the terraform block). Once you’ve saved the changes, run the command terraform init -reconfigure. This command forces Terraform to reinitialize the working directory, reconfigure the backend with the new settings, and migrate or refresh the state as required. It ensures Terraform uses the updated backend configuration instead of the previous one
+
+<img width="1064" height="307" alt="Screenshot 2025-09-19 at 2 50 00 pm" src="https://github.com/user-attachments/assets/a44c3040-ad6f-4064-ba36-2062f9081021" />
+
+### After reinitializing the working directory and updating the backend with the new settings, run terraform init again. This command initializes the Terraform environment by downloading the necessary provider plugins, setting up the backend for state storage, and preparing the working directory for further commands. It ensures that Terraform is properly configured to use the updated backend and is ready for validation, planning, and applying
+
+<img width="1437" height="311" alt="Screenshot 2025-09-19 at 3 45 21 pm" src="https://github.com/user-attachments/assets/4321dc17-ee51-46a7-98a9-ae410418b404" />
+
+### After initialization, run terraform validate to check your configuration. This command parses all your .tf files, verifies that the syntax is correct, ensures all required arguments are present, and confirms that the configuration is internally consistent. It does not contact any remote services or APIs — it’s a local check to make sure your code is structurally sound before moving on to terraform plan or terraform apply. If everything is correct, Terraform will return Success! The configuration is valid.; if not, it will display errors that you need to fix
+
+<img width="838" height="74" alt="Screenshot 2025-09-19 at 3 22 45 pm" src="https://github.com/user-attachments/assets/fe790dfb-9f3c-44c3-9818-642ca0f872b4" />
+
+### After validation, run terraform plan to generate an execution plan. This command compares your configuration files with the current state of your infrastructure and determines what changes are required. It will show you whether Terraform needs to create new resources, update existing ones, or destroy any that are no longer defined. The plan output is a preview only — no resources are changed at this stage. If everything looks correct, you can proceed with terraform apply to make the changes
+
+<img width="1355" height="115" alt="Screenshot 2025-09-19 at 3 25 03 pm" src="https://github.com/user-attachments/assets/2bb7b6e6-ec9f-4673-ae8c-30c867ad2829" />
+
+### Once you’ve reviewed the execution plan, run terraform apply to provision your infrastructure. This command re-runs the plan, shows you the actions that will be taken, and then asks for confirmation with the prompt
+
+<img width="1287" height="111" alt="Screenshot 2025-09-19 at 3 25 55 pm" src="https://github.com/user-attachments/assets/1fba2fa1-1b8e-4f64-a4a5-c86d06c13427" />
 
 
 
