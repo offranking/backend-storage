@@ -1,7 +1,7 @@
 ## backend-storage
 terraform Modules - VPC and S3 Bucket with Backend Storage
 
-### Connect to your AWS instance. This is typically done using SSH from your terminal, with the path to your private key file (.pem) and the public DNS or IP address of your EC2 instance. The command will look something like this, but you'll need to replace the placeholder values with your own: 
+## Connect to your AWS instance. This is typically done using SSH from your terminal, with the path to your private key file (.pem) and the public DNS or IP address of your EC2 instance. The command will look something like this, but you'll need to replace the placeholder values with your own: 
 "mkdir terraform-modules-vpc-s3" and cd terraform-modules-vpc-s3
 
 <img width="822" height="39" alt="Screenshot 2025-09-18 at 12 13 03 pm" src="https://github.com/user-attachments/assets/4f26dedb-2eca-4904-a37b-b72f69218614" />
